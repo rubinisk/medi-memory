@@ -1,0 +1,17 @@
+SAMPLE DOCUMENT - FICTIONAL DATA FOR DEMONSTRATION ONLY - NOT A REAL MEDICAL RECORD
+
+Sunrise Family Clinic - Consultation note
+Dr. Meera Iyer, General Physician (fictional)
+Date: 22/11/2026
+Patient: Ananya Sharma
+
+Complaints: Occasional headaches in the evening for two weeks.
+Examination: Blood pressure measured in clinic was higher than her previous reading.
+
+Advice:
+- Take Tab Amlodipine 5 mg once daily in the morning
+- Reduce salt in food and avoid packaged snacks
+- Check blood pressure at home twice a week and keep a written log
+- Bring the BP log to the next visit
+
+Follow-up on 13/12/2026

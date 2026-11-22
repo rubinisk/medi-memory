@@ -1,0 +1,32 @@
+# Optional Docker setup (PostgreSQL + backend + frontend). The default setup does NOT need Docker.
+#   docker compose up --build      then open http://localhost:8080
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: medimemory
+      POSTGRES_PASSWORD: medimemory
+      POSTGRES_DB: medimemory
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U medimemory"]
+      interval: 5s
+      retries: 10
+  backend:
+    build: ./backend
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://medimemory:medimemory@db:5432/medimemory
+      STORAGE_DIR: /data/storage
+      CORS_ORIGINS: http://localhost:8080
+    volumes: [uploads:/data/storage]
+    depends_on:
+      db: { condition: service_healthy }
+    ports: ["8000:8000"]
+  frontend:
+    build: ./frontend
+    depends_on: [backend]
+    ports: ["8080:80"]
+volumes:
+  pgdata:
+  uploads:
